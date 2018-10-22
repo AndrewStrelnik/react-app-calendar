@@ -1,26 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Layout, Menu, Row, Col } from 'antd';
 import './App.css';
+// import myCalendar from '../src/calendar';
+const { Header, Content, Footer } = Layout;
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        style={{ lineHeight: '64px' }}
+      >
+        <Menu.Item key="1">nav 1</Menu.Item>
+        <Menu.Item key="2">nav 2</Menu.Item>
+        <Menu.Item key="3">nav 3</Menu.Item>
+      </Menu>
+    </Header>
+    <Content style={{ padding: '0 50px' }}>
+    <Row gutter={16} type="flex" justify="center">
+      <Col className="content-row" span={18}>
+        <div className="content-box">
+        fff
+        </div>
+      </Col>
+      <Col className="content-row" span={6}>
+        <div className="content-box">
+        sss
+        </div>
+      </Col>
+    </Row>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>
+      Ant Design ©2018 Created by Ant UED
+    </Footer>
+  </Layout>
     );
   }
 }

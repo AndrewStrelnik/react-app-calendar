@@ -5,7 +5,7 @@ function onPanelChange(value, mode) {
   console.log(value, mode);
 }
 
-class myCalendar extends Component {
+class MyCalendar extends Component {
   render() {
     return (
       <Calendar fullscreen={false} onPanelChange={onPanelChange} />
@@ -13,4 +13,4 @@ class myCalendar extends Component {
   }
 }
 
-export default myCalendar;
+export default MyCalendar;

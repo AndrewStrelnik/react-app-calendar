@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Row, Col } from 'antd';
-import './App.css';
-// import myCalendar from '../src/calendar';
+import './App.scss';
+import MyCalendar from '../calendar/Calendar';
 const { Header, Content, Footer } = Layout;
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 3
+    }
+  }
+
   render() {
     return (
       <Layout className="layout">
@@ -14,12 +21,12 @@ class App extends Component {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['2']}
+        // defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="1">nav 1</Menu.Item>
+        {/* <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="3">nav 3</Menu.Item> */}
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
@@ -31,7 +38,7 @@ class App extends Component {
       </Col>
       <Col className="content-row" span={6}>
         <div className="content-box">
-        sss
+        <MyCalendar />
         </div>
       </Col>
     </Row>

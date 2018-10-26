@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Row, Col, Card } from 'antd';
+import { Layout, Menu, Row, Col } from 'antd';
 import './App.scss';
 import MyCalendar from '../calendar/Calendar';
+import ToDoList from '../todo_list/ToDoList';
+import moment from 'moment';
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 3,
-      todoList: require('../../data.json')
+      selectedDate: moment().format('YYYY-MM-DD'),
+      data: require('../../data.json')
     }
+  }
+
+  onSelectHandle = (value) => {
+    this.setState((state) => {
+      return {
+        selectedDate: value.format('YYYY-MM-DD')
+      }      
+    });
   }
 
   render() {
@@ -33,27 +43,12 @@ class App extends Component {
     <Row gutter={16} type="flex" justify="center">
       <Col className="content-row" span={20}>
         <div className="content-box">
-        {/* {
-          let obj = this.state.todoList;
-          for (const key in obj) {
-            if (key === "29.10.2018") {
-              return (
-                <Card
-                  title={key}
-                  extra={<a href="#">More</a>}
-                  style={{ width: 300 }}
-                >
-                  <p>`${key}: ${obj[key]}`</p>
-                </Card>
-              )
-            }
-          }
-        } */}
+        <ToDoList data={this.state.data} selectedDate={this.state.selectedDate}/>
         </div>
       </Col>
       <Col className="content-row" span={4}>
         <div className="content-box">
-        <MyCalendar count={this.state.count}/>
+        <MyCalendar count={this.state.selectedDate} onSelectHandle={this.onSelectHandle}/>
         </div>
       </Col>
     </Row>

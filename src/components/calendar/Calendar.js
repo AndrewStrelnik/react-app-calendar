@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar, Badge } from 'antd';
+import { Calendar } from 'antd';
+// import moment from 'moment';
 
 class MyCalendar extends Component {
   constructor(props) {
@@ -10,23 +11,8 @@ class MyCalendar extends Component {
   }
   
   render() {
-    // function dateFullCellRender (value) {
-    //   console.log(value._d);
-    //   return (
-    //     <Badge count={5}>
-    //       <div className="ant-fullcalendar-date">
-    //         <div className="ant-fullcalendar-value">
-    //           {value.moment}
-    //         </div>
-    //         <div className="ant-fullcalendar-content">
-    //         </div>
-    //       </div>
-    //     </Badge>
-    //   )      
-    // }
-    // console.log(value._d);
     return (
-      <Calendar fullscreen={false} />
+      <Calendar fullscreen={false} onSelect={this.props.onSelectHandle}/>
     )
   }
 }

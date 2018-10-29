@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Layout, Menu, Row, Col } from 'antd';
 import './App.scss';
 import MyCalendar from '../calendar/Calendar';
@@ -6,7 +6,7 @@ import ToDoList from '../todo_list/ToDoList';
 import moment from 'moment';
 const { Header, Content, Footer } = Layout;
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

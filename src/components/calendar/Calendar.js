@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Calendar } from 'antd';
 // import moment from 'moment';
 
-class MyCalendar extends Component {
+class MyCalendar extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
